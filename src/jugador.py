@@ -1,0 +1,3 @@
+class Jugador:
+    ...
+#no utilizado por ahora ya que me maneje con las fichas directamente en el tablero
