@@ -1,22 +1,27 @@
 from src.tablero import Tablero
+from src.jugador import Jugador 
+
+
 
 class Tateti:
-    def __init__(self): #el constructor es: siempre que
-        self.turno = "X"
+    def __init__(self, jugador1, jugador2): #el constructor es: siempre que
+        self.jugador1 = jugador1
+        self.jugador2 = jugador2
+        self.turno = self.jugador1
         self.tablero = Tablero()
 
     def ocupar_una_de_las_casillas(self,fila,columna):
         # pongo la ficha
-        self.tablero.poner_la_ficha(fila,columna, self.turno)
+        self.tablero.poner_la_ficha(fila,columna, self.turno.ficha)
    
 
         
     def cambiar_turno(self):
         # cambio turno
-        if self.turno == "X":
-            self.turno = "0"
+        if self.turno == self.jugador1:
+            self.turno = self.jugador2
         else:
-            self.turno = "X"
+            self.turno = self.jugador1
 
 
       #condicicon para ganar

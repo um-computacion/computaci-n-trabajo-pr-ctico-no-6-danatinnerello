@@ -1,16 +1,19 @@
 from src.tateti import Tateti
 from src.tablero import Tablero
 from src.excepciones import Exceptions , CasillaFueradeRango, PosOcupadaExceptions
-
+from src.jugador import Jugador
 
 def main():
     print ("Bienvenidos")
-    juego = Tateti()
+    nombre1 = input("Ingrese el nombre del jugador 1 (ficha X): ")
+    nombre2 = input("Ingrese el nombre del jugador 2 (ficha O): ")
+    jugador1 = Jugador(nombre1, "X")
+    jugador2 = Jugador(nombre2, "0")
+    juego = Tateti(jugador1, jugador2)
     while True:
         print("Tablero...")
         print(juego.tablero.mostrar_tablero())
-        print("Turno: ")
-        print(juego.turno)
+        print(f"Turno de {juego.turno.nombre} ficha:{juego.turno.ficha}")
         try:
             fila = int(input("ingrese fila entre 0 y 2: "))
             columna = int(input("Ingrese columna entre 0 y 2: "))
@@ -18,8 +21,8 @@ def main():
             juego.ocupar_una_de_las_casillas(fila,columna)
             print("ficha puesta")
 
-            ganador = juego.turno
-            if juego.hay_ganador(ganador):
+            ganador = juego.turno.nombre
+            if juego.hay_ganador(juego.turno.ficha):
                 juego.tablero.mostrar_tablero()
                 print(f"El ganador es {ganador}")
                 break
