@@ -1,5 +1,4 @@
 from src.tateti import Tateti
-from src.tablero import Tablero
 from src.excepciones import Exceptions , CasillaFueradeRango, PosOcupadaExceptions
 from src.jugador import Jugador
 
