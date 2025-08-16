@@ -1,0 +1,39 @@
+.......Ta-Te-Ti.......
+
+-Como jugar:
+
+Abrí una terminal en la carpeta del proyecto.
+
+Ejecutá
+    python3 -m src.cli 
+
+Te va a pedir el nombre de los dos jugadores:
+    El primero va a jugar con la ficha X
+    El segundo con la ficha O
+
+En cada turno, escribí la fila y la columna donde quieras poner tu ficha (números del 0 al 2).
+
+Gana quien logre tres fichas seguidas en fila, columna o diagonal.
+
+Si el tablero se llena y nadie gana… ¡empate!
+
+-Cómo está armado y por qué:
+
+cli → Maneja todo lo que se ve en consola, pide los datos y muestra resultados.
+
+tateti → Coordina todo. Sabe cuándo cambiar turnos, ocupar casillas y verificar si hay ganador.
+         Es en donde se encuentran y establecen las reglas del juego.Al principio ganador 
+         y turnos estaban en esta clase pero para que no tuviese mas responsabilidades y 
+         cumpliera con el principio de responsabilidad única, las dividi en distintas clases.
+
+tablero → Representa el tablero. Guarda las fichas, controla que no te salgas de rango 
+          y avisa si está lleno.
+
+ganador → Revisa filas, columnas y diagonales para ver si alguien ganó.
+
+jugador → guarda el nombre y la ficha de cada jugador.
+
+turnos → Administra de quién es el turno y lo cambia cuando corresponde.
+
+excepciones → Todas las excepciones personalizadas (casilla ocupada, fuera de rango, etc.) 
+              para manejar errores de forma más clara.
